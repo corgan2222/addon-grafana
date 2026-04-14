@@ -8,17 +8,14 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base system
 ARG BUILD_ARCH=amd64
 ARG GRAFANA_VERSION="12.4.3"
+ARG GRAFANA_BUILD_ID="24388279614"
 ARG GRAFANA_IMAGE_RENDERER_VERSION="v4.1.5"
 RUN \
     ARCH="${BUILD_ARCH}" \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
     \
-    && GRAFANA_URL=$(curl -sfL \
-        "https://grafana.com/api/grafana-enterprise/versions/${GRAFANA_VERSION}/packages" \
-        | grep -o '"url":"https://dl.grafana.com/grafana-enterprise/release/[^"]*_linux_'"${ARCH}"'.deb"' \
-        | head -1 | cut -d'"' -f4) \
-    && echo "Downloading Grafana Enterprise from: ${GRAFANA_URL}" \
-    && curl -J -L -o /tmp/grafana.deb "${GRAFANA_URL}" \
+    && curl -J -L -o /tmp/grafana.deb \
+        "https://dl.grafana.com/grafana-enterprise/release/${GRAFANA_VERSION}/grafana-enterprise_${GRAFANA_VERSION}_${GRAFANA_BUILD_ID}_linux_${ARCH}.deb" \
     \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
