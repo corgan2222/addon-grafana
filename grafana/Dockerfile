@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:9.2.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:9.1.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -13,8 +13,12 @@ RUN \
     ARCH="${BUILD_ARCH}" \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
     \
-    && curl -J -L -o /tmp/grafana.deb \
-        "https://dl.grafana.com/enterprise/release/grafana-enterprise_${GRAFANA_VERSION}_linux_${ARCH}.deb" \
+    && GRAFANA_URL=$(curl -sfL \
+        "https://grafana.com/api/grafana-enterprise/versions/${GRAFANA_VERSION}/packages" \
+        | grep -o '"url":"https://dl.grafana.com/grafana-enterprise/release/[^"]*_linux_'"${ARCH}"'.deb"' \
+        | head -1 | cut -d'"' -f4) \
+    && echo "Downloading Grafana Enterprise from: ${GRAFANA_URL}" \
+    && curl -J -L -o /tmp/grafana.deb "${GRAFANA_URL}" \
     \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
