@@ -104,7 +104,7 @@ documentation:
 
 <http://docs.grafana.org/installation/configuration/#using-environment-variables>
 
-**Note**: _Only environment variables starting with `GF_` are accepted._
+**Note**: _Only environment variables starting with `GF_` are accepted.\_
 
 ## Anonymous Access
 
