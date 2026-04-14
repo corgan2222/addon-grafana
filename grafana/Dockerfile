@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:9.1.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:9.2.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -7,14 +7,14 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base system
 ARG BUILD_ARCH=amd64
-ARG GRAFANA_VERSION="v12.3.1"
+ARG GRAFANA_VERSION="12.4.3"
 ARG GRAFANA_IMAGE_RENDERER_VERSION="v4.1.5"
 RUN \
     ARCH="${BUILD_ARCH}" \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
     \
     && curl -J -L -o /tmp/grafana.deb \
-        "https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION#v}_${ARCH}.deb" \
+        "https://dl.grafana.com/enterprise/release/grafana-enterprise_${GRAFANA_VERSION}_linux_${ARCH}.deb" \
     \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -85,13 +85,13 @@ LABEL \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
-    maintainer="Franck Nijhof <frenck@addons.community>" \
+    maintainer="Stefan Knaak <corgan2222@users.noreply.github.com>" \
     io.hass.name="${BUILD_NAME}" \
     io.hass.description="${BUILD_DESCRIPTION}" \
-    org.opencontainers.image.vendor="Home Assistant Community Add-ons" \
-    org.opencontainers.image.authors="Franck Nijhof <frenck@addons.community>" \
+    org.opencontainers.image.vendor="corgan2222" \
+    org.opencontainers.image.authors="Stefan Knaak <corgan2222@users.noreply.github.com>" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.url="https://addons.community" \
+    org.opencontainers.image.url="https://github.com/corgan2222/addon-grafana" \
     org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
     org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md" \
     org.opencontainers.image.created=${BUILD_DATE} \

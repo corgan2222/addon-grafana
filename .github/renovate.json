@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["helpers:pinGitHubActionDigests"],
   "rebaseWhen": "behind-base-branch",
   "dependencyDashboard": true,
   "labels": ["dependencies", "no-stale"],
@@ -31,16 +32,17 @@
       "customType": "regex",
       "fileMatch": ["/Dockerfile$"],
       "matchStrings": [
-        "ARG GRAFANA_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
+        "ARG GRAFANA_VERSION=[\"']?(?<currentValue>[\\d.]+)[\"']?"
       ],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "grafana/grafana"
+      "depNameTemplate": "grafana/grafana",
+      "versioningTemplate": "semver"
     },
     {
       "customType": "regex",
       "fileMatch": ["/Dockerfile$"],
       "matchStrings": [
-        "ARG GRAFANA_IMAGE_RENDERER_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
+        "ARG GRAFANA_IMAGE_RENDERER_VERSION=[\"']?(?<currentValue>v[\\d.]+)[\"']?"
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "grafana/grafana-image-renderer"
@@ -56,14 +58,23 @@
       "matchDatasources": ["docker"]
     },
     {
-      "groupName": "Add-on base image",
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     },
     {
-      "matchDatasources": ["github-releases"],
+      "matchDatasources": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchDepNames": ["grafana/grafana"],
+      "automerge": false
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchDepNames": ["grafana/grafana-image-renderer"],
       "automerge": true
     }
   ]
