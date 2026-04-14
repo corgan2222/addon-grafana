@@ -1,4 +1,4 @@
-# Home Assistant Community Add-on: Grafana
+# Home Assistant Community Add-on: Grafana Enterprise
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
@@ -11,14 +11,7 @@
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
-[![Discord][discord-shield]][discord]
-[![Community Forum][forum-shield]][forum]
-
-[![Sponsor Frenck via GitHub Sponsors][github-sponsors-shield]][github-sponsors]
-
-[![Support Frenck on Patreon][patreon-shield]][patreon]
-
-The open platform for beautiful analytics and monitoring.
+The open platform for beautiful analytics and monitoring. Enterprise Edition.
 
 ![Grafana in the Home Assistant Frontend](images/screenshot.png)
 
@@ -31,55 +24,33 @@ no matter where they are stored. Create, explore, and share dashboards. Learn
 about your Home Automation system using sexy and compelling graphs, and other
 data visualizations.
 
-Combine this add-on with the InfluxDB add-on to get insanely powerful
-insights to your home.
-
 [:books: Read the full add-on documentation][docs]
 
 ## Support
 
 Got questions?
 
-You have several options to get them answered:
-
-- The [Home Assistant Community Add-ons Discord chat server][discord] for add-on
-  support and feature requests.
-- The [Home Assistant Discord chat server][discord-ha] for general Home
-  Assistant discussions and questions.
-- The Home Assistant [Community Forum][forum].
-- Join the [Reddit subreddit][reddit] in [/r/homeassistant][reddit]
-
-You could also [open an issue here][issue] GitHub.
+You could [open an issue here][issue] on GitHub.
 
 ## Contributing
 
 This is an active open-source project. We are always open to people who want to
 use the code or contribute to it.
 
-We have set up a separate document containing our
-[contribution guidelines](.github/CONTRIBUTING.md).
-
-Thank you for being involved! :heart_eyes:
-
 ## Authors & contributors
 
-The original setup of this repository is by [Franck Nijhof][frenck].
+Originally based on the [Home Assistant Community Add-ons][upstream] project
+by [Franck Nijhof][frenck]. Maintained by [Stefan Knaak][corgan2222].
 
 For a full list of all authors and contributors,
 check [the contributor's page][contributors].
-
-## We have got some Home Assistant add-ons for you
-
-Want some more functionality to your Home Assistant instance?
-
-We have created multiple add-ons for Home Assistant. For a full list, check out
-our [GitHub Repository][repository].
 
 ## License
 
 MIT License
 
-Copyright (c) 2018-2025 Franck Nijhof
+Copyright (c) 2018-2026 Franck Nijhof
+Copyright (c) 2026 Stefan Knaak
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -101,27 +72,18 @@ SOFTWARE.
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-grafana.svg
-[commits]: https://github.com/hassio-addons/addon-grafana/commits/main
-[contributors]: https://github.com/hassio-addons/addon-grafana/graphs/contributors
-[discord-ha]: https://discord.gg/c5DvZ4e
-[discord-shield]: https://img.shields.io/discord/478094546522079232.svg
-[discord]: https://discord.me/hassioaddons
-[docs]: https://github.com/hassio-addons/addon-grafana/blob/main/grafana/DOCS.md
-[forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
-[forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-grafana/54674?u=frenck
+[commits-shield]: https://img.shields.io/github/commit-activity/y/corgan2222/addon-grafana.svg
+[commits]: https://github.com/corgan2222/addon-grafana/commits/main
+[contributors]: https://github.com/corgan2222/addon-grafana/graphs/contributors
+[corgan2222]: https://github.com/corgan2222
+[docs]: https://github.com/corgan2222/addon-grafana/blob/main/grafana/DOCS.md
 [frenck]: https://github.com/frenck
-[github-actions-shield]: https://github.com/hassio-addons/addon-grafana/workflows/CI/badge.svg
-[github-actions]: https://github.com/hassio-addons/addon-grafana/actions
-[github-sponsors-shield]: https://frenck.dev/wp-content/uploads/2019/12/github_sponsor.png
-[github-sponsors]: https://github.com/sponsors/frenck
-[issue]: https://github.com/hassio-addons/addon-grafana/issues
-[license-shield]: https://img.shields.io/github/license/hassio-addons/addon-grafana.svg
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2025.svg
-[patreon-shield]: https://frenck.dev/wp-content/uploads/2019/12/patreon.png
-[patreon]: https://www.patreon.com/frenck
-[project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
-[reddit]: https://reddit.com/r/homeassistant
-[releases-shield]: https://img.shields.io/github/release/hassio-addons/addon-grafana.svg
-[releases]: https://github.com/hassio-addons/addon-grafana/releases
-[repository]: https://github.com/hassio-addons/repository
+[github-actions-shield]: https://github.com/corgan2222/addon-grafana/workflows/CI/badge.svg
+[github-actions]: https://github.com/corgan2222/addon-grafana/actions
+[issue]: https://github.com/corgan2222/addon-grafana/issues
+[license-shield]: https://img.shields.io/github/license/corgan2222/addon-grafana.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2026.svg
+[project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
+[releases-shield]: https://img.shields.io/github/v/release/corgan2222/addon-grafana.svg
+[releases]: https://github.com/corgan2222/addon-grafana/releases
+[upstream]: https://github.com/hassio-addons/addon-grafana
