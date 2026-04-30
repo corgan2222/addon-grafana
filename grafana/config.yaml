@@ -22,13 +22,10 @@ options:
   plugins: []
   custom_plugins: []
   env_vars: []
-  ssl: true
+  ssl: false
   certfile: fullchain.pem
   keyfile: privkey.pem
-ports:
-  80/tcp: null
-ports_description:
-  80/tcp: Not required for Ingress
+host_network: true
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   plugins:
